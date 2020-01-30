@@ -7,14 +7,25 @@ function start(){
 	ChangeNameState(buttonTurnPowerPlug);
 }
 
+function SendReq(msg){	
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", msg, true);
+
+	xhttp.onreadystatechange = function(){//Função a ser chamada quando a requisição retornar do servidor
+    if ( xhttp.readyState == 4 && xhttp.status == 200 ) {//Verifica se o retorno do servidor deu certo
+        console.log(xhttp.responseText);
+    }
+}
+}
+
 function ChangeState(){
 	if(powerPlug){
-		//todo turn of
+		SendReq("/L");
 		console.log("off");
 		powerPlug = false;
 	}
 	else{
-		//todo turn on
+		SendReq("/H");
 		console.log("on");
 		powerPlug = true;
 	}
