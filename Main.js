@@ -13,10 +13,11 @@ function SendReq(msg){
 
 	xhttp.onreadystatechange = function(){//Função a ser chamada quando a requisição retornar do servidor
 		if ( xhttp.readyState == 4 && xhttp.status == 200 ) {//Verifica se o retorno do servidor deu certo
-			console.log(xhttp.responseText);
+			
 		}
+		console.log(xhttp.responseText);
 	}
-	
+
 	xhttp.send();
 }
 
