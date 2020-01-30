@@ -5,7 +5,6 @@ function start(){
 	buttonTurnPowerPlug = document.getElementById("buttonTurn");
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
 	ChangeNameState(buttonTurnPowerPlug);
-	document.getElementById("content").innerHTML='<object type="text/html" data="test.html" ></object>';
 }
 
 function ChangeState(){
