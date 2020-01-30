@@ -29,5 +29,3 @@ function ChangeNameState(button){
 		button.innerText = "Turn On";
 	}
 }
-
-window.onload = start;
