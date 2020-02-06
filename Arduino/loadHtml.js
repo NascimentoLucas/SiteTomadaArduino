@@ -3,12 +3,13 @@ var obj;
 function start(){
 	console.log("Start Load");
 	var path = "http://devlucasnascimento.com.br/Arduino/";
-	path = 'http://localhost:9000/Arduino/';
+	//path = 'http://localhost:9000/Arduino/';
 
 	obj = document.getElementById('contentTest');
 	obj.src = path;
 	
 	AdjustSize();
+	GetPageUrl();
 }
 
 function GetPageUrl(){
@@ -35,7 +36,6 @@ function test(){
 		html+= body;
 		html+="</html>"
 		document.body = body;
-		GetPageUrl();
 	}
 }
 
