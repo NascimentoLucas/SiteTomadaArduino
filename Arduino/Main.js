@@ -1,13 +1,11 @@
 var powerPlug = true;
 var buttonTurnPowerPlug;
+var link;
 function start(){
 	console.log("Start Main");
 	buttonTurnPowerPlug = document.getElementById("buttonTurn");
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
-	ChangeNameState(buttonTurnPowerPlug);
-	var loc = window.location.href;
-	var dir = loc.substring(0, loc.lastIndexOf('/'));
-	console.log(loc);
+	ChangeNameState(buttonTurnPowerPlug);	
 }
 
 function SendReq(msg){	
@@ -44,6 +42,15 @@ function ChangeNameState(button){
 	}
 	else{
 		button.innerText = "Turn On";
+	}
+}
+
+function ChangeLinkName(link){
+	if(powerPlug){
+		link.innerText = "Turn Off";
+	}
+	else{
+		link.innerText = "Turn On";
 	}
 }
 
