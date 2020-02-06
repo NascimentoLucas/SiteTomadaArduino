@@ -8,7 +8,19 @@ function start(){
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
 	handler = document.getElementById("handler");
 	ChangeNameState(buttonTurnPowerPlug);	
-	GetPageUrl();
+	
+	var auxUrl = GetPageUrl() + "";
+	var newUrl = [];
+	for(var i = auxUrl.length - 1; i > -1; i--){
+		if(auxUrl[i].localeCompare(";") == 0){
+			break;
+		}
+		newUrl.splice(0, 0, auxUrl[i]);
+	}
+	myUrlConst = "";
+	for(var i = 0; i < newUrl.length; i++){
+		myUrlConst += newUrl[i];
+	}
 	console.log("url: "  + myUrlConst);
 }
 
@@ -27,17 +39,18 @@ function SendReq2(msg){
 }
 
 function SendReq(url){	
-	handler.src = url;
+	handler.src = "http://"+ url;
+	console.log(url);
 }
 
 
 function ChangeState(){
 	if(powerPlug){
-		SendReq("http://192.168.1.110/L");
+		SendReq(myUrlConst + "/L");
 		powerPlug = false;
 	}
 	else{
-		SendReq("http://192.168.1.110/H");
+		SendReq(myUrlConst + "/H");
 		powerPlug = true;
 	}
 	ChangeNameState(buttonTurnPowerPlug);
@@ -53,9 +66,7 @@ function ChangeNameState(button){
 }
 
 function GetPageUrl(){
-	var loc = window.location.href;
-	var dir = loc.substring(0, loc.lastIndexOf('/'));
-	console.log(loc);
+	return window.location.href;
 }
 
 window.onload = start;
