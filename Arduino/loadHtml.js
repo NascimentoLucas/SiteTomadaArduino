@@ -6,7 +6,7 @@ function start(){
 	
 	var ip = document.getElementById('ip');
 	url = ip.innerText;
-	ip.innerText = "";
+	//ip.innerText = "";
 
 
 	var path = "http://devlucasnascimento.com.br/Arduino/";
