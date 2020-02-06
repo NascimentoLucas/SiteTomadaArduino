@@ -9,6 +9,7 @@ function start(){
 	obj.src = path;
 	
 	AdjustSize();
+	test();
 }
 
 function GetPageUrl(){
@@ -18,23 +19,13 @@ function GetPageUrl(){
 }
 
 function test(){
-	var elmnt = obj.contentWindow.document.getElementsByTagName("H1")[0];
-	if(!elmnt)
+	if(!myUrlConst)
 	{
-		window.setTimeout(test, 10);
+		window.setTimeout(test, 1000);
 		console.log("Wait 1s");
 	}
 	else{
-		console.log("Loaded");
-		var head = obj.contentWindow.document.head.innerHTML;
-		var body = obj.contentWindow.document.body;
-		console.log();
-		
-		var html = "<html>"
-		html+= head;
-		html+= body;
-		html+="</html>"
-		document.body = body;
+		console.log(myUrlConst);		
 	}
 }
 

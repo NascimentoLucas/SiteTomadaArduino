@@ -1,13 +1,13 @@
 var powerPlug = true;
 var buttonTurnPowerPlug;
 var handler;
+let myUrlConst = "mainDefine";
 function start(){
 	console.log("Start Main");
 	buttonTurnPowerPlug = document.getElementById("buttonTurn");
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
 	handler = document.getElementById("handler");
 	ChangeNameState(buttonTurnPowerPlug);	
-	GetPageUrl();
 }
 
 function SendReq2(msg){	
@@ -49,7 +49,6 @@ function ChangeNameState(button){
 		button.innerText = "Turn On";
 	}
 }
-
 
 function GetPageUrl(){
 	var loc = window.location.href;
