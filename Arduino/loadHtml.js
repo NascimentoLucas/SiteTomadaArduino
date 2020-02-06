@@ -7,7 +7,6 @@ function start(){
 
 	obj = document.getElementById('contentTest');
 	obj.src = path;
-	test();
 }
 
 function GetPageUrl(){
