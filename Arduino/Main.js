@@ -23,12 +23,12 @@ function SendReq(msg){
 
 function ChangeState(){
 	if(powerPlug){
-		SendReq("/L");
+		SendReq("http://192.168.1.110/L");
 		console.log("off");
 		powerPlug = false;
 	}
 	else{
-		SendReq("/H");
+		SendReq("http://192.168.1.110/H");
 		console.log("on");
 		powerPlug = true;
 	}
