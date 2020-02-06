@@ -1,10 +1,13 @@
 var powerPlug = true;
 var buttonTurnPowerPlug;
 function start(){
-	console.log("start");
+	console.log("Start Main");
 	buttonTurnPowerPlug = document.getElementById("buttonTurn");
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
 	ChangeNameState(buttonTurnPowerPlug);
+	var loc = window.location.href;
+	var dir = loc.substring(0, loc.lastIndexOf('/'));
+	console.log(loc);
 }
 
 function SendReq(msg){	

@@ -1,7 +1,11 @@
 function start(){
-	console.log("Hostgator");
-	console.log("start load html js");
-	document.getElementById("content").innerHTML='<object type="text/html" data="http://devlucasnascimento.com.br/Arduino/" ></object>';
+	console.log("Start Load");
+	var path = "http://devlucasnascimento.com.br/Arduino/";	//todo remove
+	path = 'http://localhost:9000/Arduino/';
+	var html = "<object type=\"text/html\" data=" + path +" ></object>";
+	
+	var obj = document.getElementById("content");
+	obj.innerHTML = html
 }
 
 window.onload = start;
