@@ -1,14 +1,15 @@
 var powerPlug = true;
 var buttonTurnPowerPlug;
-var link;
+var handler;
 function start(){
 	console.log("Start Main");
 	buttonTurnPowerPlug = document.getElementById("buttonTurn");
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
+	handler = document.getElementById("handler");
 	ChangeNameState(buttonTurnPowerPlug);	
 }
 
-function SendReq(msg){	
+function SendReq2(msg){	
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", msg, true);
 
@@ -22,15 +23,18 @@ function SendReq(msg){
 	xhttp.send();
 }
 
+function SendReq(url){	
+	handler.src = url;
+}
+
+
 function ChangeState(){
 	if(powerPlug){
 		SendReq("http://192.168.1.110/L");
-		console.log("off");
 		powerPlug = false;
 	}
 	else{
 		SendReq("http://192.168.1.110/H");
-		console.log("on");
 		powerPlug = true;
 	}
 	ChangeNameState(buttonTurnPowerPlug);
