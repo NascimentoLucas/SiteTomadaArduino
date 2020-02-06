@@ -8,7 +8,7 @@ function start(){
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
 	handler = document.getElementById("handler");
 	ChangeNameState(buttonTurnPowerPlug);	
-	myUrlConst = window.parent.onload();
+	GetMyUrl();
 	console.log("url: "  + myUrlConst);
 }
 
