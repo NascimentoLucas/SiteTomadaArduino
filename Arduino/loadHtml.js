@@ -19,13 +19,18 @@ function GetPageUrl(){
 }
 
 function test(){
-	if(!myUrlConst)
-	{
+	try {
+		if(!myUrlConst)
+		{
+
+		}
+		else{
+			console.log(myUrlConst);		
+		}
+	}
+	catch(err) {
 		window.setTimeout(test, 1000);
 		console.log("Wait 1s");
-	}
-	else{
-		console.log(myUrlConst);		
 	}
 }
 
