@@ -7,6 +7,7 @@ function start(){
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
 	handler = document.getElementById("handler");
 	ChangeNameState(buttonTurnPowerPlug);	
+	GetPageUrl();
 }
 
 function SendReq2(msg){	
@@ -49,13 +50,11 @@ function ChangeNameState(button){
 	}
 }
 
-function ChangeLinkName(link){
-	if(powerPlug){
-		link.innerText = "Turn Off";
-	}
-	else{
-		link.innerText = "Turn On";
-	}
+
+function GetPageUrl(){
+	var loc = window.location.href;
+	var dir = loc.substring(0, loc.lastIndexOf('/'));
+	console.log(loc);
 }
 
 window.onload = start;

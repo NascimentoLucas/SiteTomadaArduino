@@ -9,7 +9,6 @@ function start(){
 	obj.src = path;
 	
 	AdjustSize();
-	GetPageUrl();
 }
 
 function GetPageUrl(){
