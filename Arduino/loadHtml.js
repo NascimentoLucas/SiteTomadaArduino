@@ -1,5 +1,5 @@
 var obj;
-
+var url;
 function start(){
 	console.log("Start Load");
 	var path = "http://devlucasnascimento.com.br/Arduino/";
@@ -7,9 +7,11 @@ function start(){
 
 	obj = document.getElementById('contentTest');
 	obj.src = path;
-	
-	AdjustSize();
-	test();
+	var ip = document.getElementById('ip');
+	url = ip.innerText;
+	ip.innerText = "";
+	window.onload = GetMyUrl;
+	//AdjustSize();
 }
 
 function GetPageUrl(){
@@ -18,20 +20,8 @@ function GetPageUrl(){
 	console.log(loc);
 }
 
-function test(){
-	try {
-		if(!myUrlConst)
-		{
-
-		}
-		else{
-			console.log(myUrlConst);		
-		}
-	}
-	catch(err) {
-		window.setTimeout(test, 1000);
-		console.log("Wait 1s");
-	}
+function GetMyUrl(){
+	return url;
 }
 
 function AdjustSize(){

@@ -1,13 +1,15 @@
 var powerPlug = true;
 var buttonTurnPowerPlug;
 var handler;
-let myUrlConst = "mainDefine";
+var myUrlConst = "mainDefine";
 function start(){
 	console.log("Start Main");
 	buttonTurnPowerPlug = document.getElementById("buttonTurn");
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
 	handler = document.getElementById("handler");
 	ChangeNameState(buttonTurnPowerPlug);	
+	myUrlConst = window.parent.onload();
+	console.log("url: "  + myUrlConst);
 }
 
 function SendReq2(msg){	
