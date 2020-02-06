@@ -58,4 +58,10 @@ function GetPageUrl(){
 	console.log(loc);
 }
 
+function GetPageUrl(){
+	var loc = window.location.href;
+	var dir = loc.substring(0, loc.lastIndexOf('/'));
+	console.log(loc);
+}
+
 window.onload = start;
