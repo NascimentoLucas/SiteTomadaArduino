@@ -2,12 +2,13 @@ var powerPlug = true;
 var buttonTurnPowerPlug;
 var handler;
 var myUrlConst = "mainDefine";
+var handlerIsFree = true;
 function start(){
 	console.log("Start Main");
 	buttonTurnPowerPlug = document.getElementById("buttonTurn");
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
 	handler = document.getElementById("handler");
-	handler.addEventListener("load", HandlerLoaded)
+	handler.addEventListener("load", HandlerLoaded);
 
 	ChangeNameState(buttonTurnPowerPlug);	
 	
@@ -17,6 +18,10 @@ function start(){
 
 function HandlerLoaded(){
 	console.log(handler.src + " has been load");
+	setTimeout(function(){ 
+		handlerIsFree = true;
+		ChangeNameState(buttonTurnPowerPlug);
+	}, 1000);	
 }
 
 function GetMachineIP(){
@@ -37,23 +42,13 @@ function GetMachineIP(){
 	return url;
 }
 
-function SendReq2(msg){	
-	var xhttp = new XMLHttpRequest();
-	xhttp.open("GET", msg, true);
-
-	xhttp.onreadystatechange = function(){//Função a ser chamada quando a requisição retornar do servidor
-		if ( xhttp.readyState == 4 && xhttp.status == 200 ) {//Verifica se o retorno do servidor deu certo
-			
-		}
-		console.log(xhttp.responseText);
-	}
-
-	xhttp.send();
-}
-
 function SendReq(url){	
-	handler.src = url;
-	console.log(url);
+	if(handlerIsFree){
+		buttonTurnPowerPlug.innerText = "Please Wait";
+		handlerIsFree = false;
+		url = "http://" + url;
+		handler.src = url;
+	}
 }
 
 function ChangeState(){
@@ -65,7 +60,6 @@ function ChangeState(){
 		SendReq(myUrlConst + "/H");
 		powerPlug = true;
 	}
-	ChangeNameState(buttonTurnPowerPlug);
 }
 
 function ChangeNameState(button){

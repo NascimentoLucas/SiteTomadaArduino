@@ -6,11 +6,13 @@ function start(){
 	
 	var ip = document.getElementById('ip');
 	url = ip.innerText;
-	//ip.innerText = "";
+	ip.innerText = "";
 
 
 	var path = "http://devlucasnascimento.com.br/Arduino/";
-	//path = 'http://localhost:9000/Arduino/';
+	if(GetPageUrl().includes("localhost:9000")){
+		path = 'http://localhost:9000/Arduino/';
+	}
 	path += "?;" + url;
 	obj = document.getElementById('contentTest');
 	obj.src = path;
@@ -21,8 +23,7 @@ function start(){
 
 function GetPageUrl(){
 	var loc = window.location.href;
-	var dir = loc.substring(0, loc.lastIndexOf('/'));
-	console.log(loc);
+	return loc;
 }
 
 function AdjustSize(){
