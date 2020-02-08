@@ -9,6 +9,12 @@ function start(){
 	handler = document.getElementById("handler");
 	ChangeNameState(buttonTurnPowerPlug);	
 	
+	myUrlConst = GetMachineIP();
+	console.log("url: "  + myUrlConst);
+}
+
+function GetMachineIP(){
+	var url = "";
 	var auxUrl = GetPageUrl() + "";
 	var newUrl = [];
 	for(var i = auxUrl.length - 1; i > -1; i--){
@@ -17,11 +23,12 @@ function start(){
 		}
 		newUrl.splice(0, 0, auxUrl[i]);
 	}
-	myUrlConst = "";
+	url = "";
 	for(var i = 0; i < newUrl.length; i++){
-		myUrlConst += newUrl[i];
+		url += newUrl[i];
 	}
-	console.log("url: "  + myUrlConst);
+
+	return url;
 }
 
 function SendReq2(msg){	
@@ -39,7 +46,7 @@ function SendReq2(msg){
 }
 
 function SendReq(url){	
-	handler.src = "http://"+ url;
+	handler.src = url;
 	console.log(url);
 }
 
