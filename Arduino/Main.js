@@ -7,10 +7,16 @@ function start(){
 	buttonTurnPowerPlug = document.getElementById("buttonTurn");
 	buttonTurnPowerPlug.addEventListener("click", ChangeState);
 	handler = document.getElementById("handler");
+	handler.addEventListener("load", HandlerLoaded)
+
 	ChangeNameState(buttonTurnPowerPlug);	
 	
 	myUrlConst = GetMachineIP();
 	console.log("url: "  + myUrlConst);
+}
+
+function HandlerLoaded(){
+	console.log(handler.src + " has been load");
 }
 
 function GetMachineIP(){
@@ -49,7 +55,6 @@ function SendReq(url){
 	handler.src = url;
 	console.log(url);
 }
-
 
 function ChangeState(){
 	if(powerPlug){
