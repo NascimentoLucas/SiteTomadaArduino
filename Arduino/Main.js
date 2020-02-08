@@ -50,10 +50,13 @@ function SendReq(url){
 		handler.src = url;
 		console.log("Loading: " + handler.src);
 	}
+	else{
+		alert("Please Wait");
+	}
 }
 
 function ChangeState(){
-	if(powerPlug){
+	if(!powerPlug){
 		SendReq(myUrlConst + "/L");
 		powerPlug = false;
 	}
@@ -65,10 +68,10 @@ function ChangeState(){
 
 function ChangeNameState(button){
 	if(powerPlug){
-		button.innerText = "Turn Off";
+		button.innerText = "Turn On";
 	}
 	else{
-		button.innerText = "Turn On";
+		button.innerText = "Turn Off";
 	}
 }
 
