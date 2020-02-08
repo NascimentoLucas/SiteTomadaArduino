@@ -48,6 +48,7 @@ function SendReq(url){
 		handlerIsFree = false;
 		url = "http://" + url;
 		handler.src = url;
+		console.log("Loading: " + handler.src);
 	}
 }
 
