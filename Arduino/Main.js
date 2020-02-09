@@ -55,8 +55,7 @@ function SendReq(url){
 	}
 }
 
-function ChangeState(){
-	
+function ChangeState(){	
 	console.log(powerPlug);
 	if(powerPlug){
 		SendReq(myUrlConst + "/H");
