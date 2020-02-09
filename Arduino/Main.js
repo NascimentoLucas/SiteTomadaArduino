@@ -58,12 +58,12 @@ function SendReq(url){
 function ChangeState(){
 	if(!powerPlug){
 		SendReq(myUrlConst + "/L");
-		powerPlug = false;
 	}
 	else{
 		SendReq(myUrlConst + "/H");
-		powerPlug = true;
 	}
+
+	powerPlug = !powerPlug;
 }
 
 function ChangeNameState(button){
