@@ -56,22 +56,22 @@ function SendReq(url){
 }
 
 function ChangeState(){
-	if(!powerPlug){
-		SendReq(myUrlConst + "/L");
+	if(powerPlug){
+		SendReq(myUrlConst + "/H");
+		powerPlug = false;
 	}
 	else{
-		SendReq(myUrlConst + "/H");
+		SendReq(myUrlConst + "/L");
+		powerPlug = true;
 	}
-
-	powerPlug = !powerPlug;
 }
 
 function ChangeNameState(button){
 	if(powerPlug){
-		button.innerText = "Turn On";
+		button.innerText = "Turn Off";
 	}
 	else{
-		button.innerText = "Turn Off";
+		button.innerText = "Turn On";
 	}
 }
 
